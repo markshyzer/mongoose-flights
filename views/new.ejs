@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+
+<form action="/flights" method="POST" autocomplete="off">
+    <label>Airline:
+        <input type="text" name="airline">
+    </label>
+    <label>Airport:
+        <select name="airport">
+            <option value="AUS">AUS</option>
+            <option value="DFW">DFW</option>
+            <option value="DEN">DEN</option>
+            <option value="LAX">LAX</option>
+            <option value="SAN">SAN</option>
+            </select>
+    </label>
+    <label>Flight No.:
+        <input type="number" name="flightNo">
+    </label>
+    <label>Departure Date:
+        <input type="date" name="departs">
+    </label>    
+    <button type="submit">Add Flight</button>
+  </form>

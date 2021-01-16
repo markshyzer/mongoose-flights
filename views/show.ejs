@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+<h2>Flight Detail</h2>
+
+
+<%=    flight.airline %>
+<%=    flight.airport %>
+<%=    flight.flightNo %>
+<%=     flight.departs %>
+<p>Destinations<br>
+    <% flight.destinations.forEach(function (d){ %>
+        <%= d.airport %> <%= d.arrival %>
+    <% }) %>    
+</p>
+
+<p>Add Destinaion<br>
+<form action="/flights/<%= flight.id %>" method="POST">
+    <label>Airport:
+        <select name="airport">
+            <option value="AUS">AUS</option>
+            <option value="DFW">DFW</option>
+            <option value="DEN">DEN</option>
+            <option value="LAX">LAX</option>
+            <option value="SAN">SAN</option>
+            </select>
+    </label>
+    <label>
+        <input type="date" name="arrival">
+    </label>
+    <button type="submit">Add</button>
+</form>
+</p>

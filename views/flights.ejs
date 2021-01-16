@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+<h2>All Flights</h2>
+
+<% flights.forEach (function(f){ %>
+    <p>
+<%=    f.airline %>
+<%=    f.airport %>
+<%=    f.flightNo %>
+<%=     f.departs %>
+<a href="/flights/<%= f.id%>">Detail</a>
+    </p>
+<% }) %>
