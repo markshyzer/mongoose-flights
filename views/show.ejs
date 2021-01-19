@@ -6,26 +6,42 @@
 <%=    flight.airport %>
 <%=    flight.flightNo %>
 <%=     flight.departs %>
-<p>Destinations<br>
-    <% flight.destinations.forEach(function (d){ %>
-        <%= d.airport %> <%= d.arrival %>
-    <% }) %>    
+<h2>Destinations<h3>
+    <ul>
+        <% flight.destinations.forEach(function (d){ %>
+            <li>Airport: <%= d.airport %> Arrival Date: <%= d.arrival %></li>
+        <% }) %>    
+    </ul>
+
+<h3>Add Destinaion<h3>
+<p>
+    <form action="/flights/<%= flight.id %>" method="POST">
+        <label>Airport:
+            <select name="airport">
+                <option value="AUS">AUS</option>
+                <option value="DFW">DFW</option>
+                <option value="DEN">DEN</option>
+                <option value="LAX">LAX</option>
+                <option value="SAN">SAN</option>
+                </select>
+        </label>
+        <label>
+            <input type="date" name="arrival">
+        </label>
+        <button type="submit">Add</button>
+    </form>
+
 </p>
 
-<p>Add Destinaion<br>
-<form action="/flights/<%= flight.id %>" method="POST">
-    <label>Airport:
-        <select name="airport">
-            <option value="AUS">AUS</option>
-            <option value="DFW">DFW</option>
-            <option value="DEN">DEN</option>
-            <option value="LAX">LAX</option>
-            <option value="SAN">SAN</option>
-            </select>
-    </label>
-    <label>
-        <input type="date" name="arrival">
-    </label>
-    <button type="submit">Add</button>
-</form>
-</p>
+
+<h3>Tickets</h3>
+    <ul>
+        <% tickets.forEach(function(t){ %>
+            <li>Seat: <%= t.seat %> Price: <%= t.price %></li>
+        <% }) %>
+    </ul>
+
+    <form action="/tickets/new/<%= flight.id %>" method="GET">
+        <button type="submit">Add Ticket</button>
+    </form>
+
